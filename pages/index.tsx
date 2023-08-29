@@ -81,7 +81,7 @@ const Index: React.FC<LayoutProps> = () => {
           <Image src={JenisVaksin} alt="content image" />
           <div className="flex gap-2 font-medium justify-center">
             <div className="cursor-pointer">
-              <a href={"/pdf-file/Jeins-Vaksin-dan-Harga.pdf"} download>
+              <a href={"/pdf-file/Jenis-Vaksin-dan-Harga.pdf"} download>
                 <FontAwesomeIcon
                   icon={faDownload}
                   style={{ color: "#256de9" }}
@@ -97,7 +97,7 @@ const Index: React.FC<LayoutProps> = () => {
           <Image src={JadwalImunisasi} alt="content image" />
           <div className="flex gap-2 font-medium justify-center">
             <div className="cursor-pointer">
-              <a href={"/public/pdf-file/jadwal-imunisasi-2023.pdf"} download>
+              <a href={"/pdf-file/Jadwal-Imunisasi.pdf"} download>
                 <FontAwesomeIcon
                   icon={faDownload}
                   style={{ color: "#256de9" }}
