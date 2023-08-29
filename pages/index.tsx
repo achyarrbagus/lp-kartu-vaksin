@@ -18,9 +18,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Alamat from "../assets/Alamat.png";
-import JadwalVaksinPdf from "../public/pdf-file/Jadwal-Vaksinasi-Anak.pdf";
-import JenisVaksinPdf from "../public/pdf-file/Jenis-Vaksin-dan-Harga.pdf";
-import JadwalImunisasiPdf from "../public/pdf-file/jadwal-imunisasi-2023.pdf";
 
 interface LayoutProps {
   title: string;
@@ -67,7 +64,7 @@ const Index: React.FC<LayoutProps> = () => {
           <div className="flex gap-2 font-medium justify-center">
             <div className="cursor-pointer">
               <a
-                href={JadwalVaksinPdf}
+                href={"/pdf-file/Jadwal-Vaksinasi-Anak.pdf"}
                 target="_blank"
                 download
                 style={{ textDecoration: "none", color: "#256de9" }}
@@ -84,7 +81,7 @@ const Index: React.FC<LayoutProps> = () => {
           <Image src={JenisVaksin} alt="content image" />
           <div className="flex gap-2 font-medium justify-center">
             <div className="cursor-pointer">
-              <a href={JenisVaksinPdf} download>
+              <a href={"/pdf-file/Jeins-Vaksin-dan-Harga.pdf"} download>
                 <FontAwesomeIcon
                   icon={faDownload}
                   style={{ color: "#256de9" }}
@@ -100,7 +97,7 @@ const Index: React.FC<LayoutProps> = () => {
           <Image src={JadwalImunisasi} alt="content image" />
           <div className="flex gap-2 font-medium justify-center">
             <div className="cursor-pointer">
-              <a href={JadwalImunisasiPdf} download>
+              <a href={"/public/pdf-file/jadwal-imunisasi-2023.pdf"} download>
                 <FontAwesomeIcon
                   icon={faDownload}
                   style={{ color: "#256de9" }}
