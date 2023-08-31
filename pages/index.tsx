@@ -181,6 +181,7 @@ const Index: React.FC<LayoutProps> = () => {
                 height: "30px",
                 border: "solid 2px white",
               }}
+              onClick={NavigateWa}
               className="flex rounded-full gap-1 cursor-pointer text-center font-poppins text-white p-1 mx-auto mb-5 text-xs justify-center"
             >
               <div className="">
@@ -218,6 +219,7 @@ const Index: React.FC<LayoutProps> = () => {
                   alt="avensi-logo"
                   className="text-center"
                 />
+                s
               </div>
             </div>
           </div>
