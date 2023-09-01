@@ -219,7 +219,6 @@ const Index: React.FC<LayoutProps> = () => {
                   alt="avensi-logo"
                   className="text-center"
                 />
-                s
               </div>
             </div>
           </div>
