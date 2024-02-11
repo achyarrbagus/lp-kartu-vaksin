@@ -87,7 +87,7 @@ a {
 }
 
 .content {
-    margin-top: 68px;
+    margin-top: 80px;
 }
 
 .hero-banner {
@@ -96,17 +96,12 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     display: flex;
     align-items: center;
 
-    @include breakpoint(xl, max) {
-        height: 75vh;
-    }
-
     @include breakpoint(lg, max) {
-        aspect-ratio: 414/284;
-        height: auto;
+        height: 130vh;
     }
 
     @include breakpoint(sm, max) {
@@ -122,7 +117,6 @@ a {
             font-weight: $bold;
             font-size: 38px;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
-            color: #F4FFC8;
 
             @include breakpoint(sm, max) {
                 font-size: 18px;
@@ -155,10 +149,33 @@ a {
 }
 
 section {
-    padding-bottom: 32px;
+    padding-bottom: 24px;
+
+    &.kelebihan {
+        padding: 18px 18px;
+        background: #EDFAF7;
+    }
+
+    .title-flex {
+        display: flex;
+        gap: 24px;
+        padding-bottom: 8px;
+        border-bottom: 1.5px solid $primary;
+        align-items: center;
+
+        .img-title {
+            width: 80px;
+            height: 80px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: $bold;
+        }
+    }
 
     .title-section {
-        padding-top: 42px;
+        padding-top: 14px;
         font-size: 24px;
         font-weight: $bold;
         text-align: center;
@@ -166,6 +183,146 @@ section {
 
         @include breakpoint(sm, max) {
             font-size: 20px;
+        }
+    }
+
+    &.doctor-name {
+        background: $warning;
+        padding-bottom: 0;
+        font-size: 16px;
+        color: $white;
+
+        .d-flex {
+            gap: 12px;
+        }
+
+        hr {
+            border: 1px solid $white;
+            opacity: 1;
+        }
+
+        .name {
+            @include breakpoint(lg, min) {
+                font-size: 20px;
+            }
+        }
+
+        .img-doctor-anak {
+            width: 240px;
+            aspect-ratio: 149/159;
+
+            @include breakpoint(sm, max) {
+                width: 149px;
+            }
+        }
+    }
+
+    .title-line {
+        position: relative;
+        margin-top: 42px;
+        font-size: 24px;
+        font-weight: $bold;
+        margin-bottom: 16px;
+
+        @include breakpoint(sm, max) {
+            font-size: 20px;
+        }
+
+        &::before {
+            content: "";
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            margin-top: 0;
+            position: absolute;
+            z-index: 0;
+            height: 0;
+            border-top: 2px solid $white;
+        }
+
+        &.blue {
+            color: $primary;
+
+            &::before {
+                border-top: 1.5px solid $primary;
+            }
+        }
+
+        &.warning {
+            color: $warning;
+
+            &::before {
+                border-top: 1.5px solid $warning;
+            }
+        }
+
+        span {
+            background: $white;
+            position: relative;
+            z-index: 1;
+            padding-right: 14px;
+        }
+    }
+
+    &.desc {
+        background-image: url('../img/bg-desc.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: auto;
+        padding: 42px 24px;
+        text-align: center;
+
+        @include breakpoint(lg, min) {
+            padding: 72px 24px;
+        }
+
+        h3 {
+            font-weight: $bold;
+            font-size: 24px;
+            color: $dark-primary;
+        }
+
+        p {
+            font-size: 16px;
+            color: #494949;
+            margin-bottom: 0;
+        }
+    }
+
+    &.detail-pages {
+        padding: 32px 0;
+
+        .title-line {
+            position: relative;
+            font-size: 24px;
+            font-weight: $bold;
+            margin: 0;
+            width: 100%;
+
+            @include breakpoint(sm, max) {
+                font-size: 20px;
+            }
+
+            &::before {
+                content: "";
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                margin-top: 0;
+                position: absolute;
+                z-index: 0;
+                height: 0;
+                border-top: 2px dashed $dark-primary;
+            }
+
+            span {
+                background: $white;
+                position: relative;
+                z-index: 1;
+                padding-right: 8px;
+                color: $dark-primary;
+            }
         }
     }
 
@@ -213,10 +370,6 @@ section {
 
     &.why {
         background: $primary;
-        background-image: url('../img/bg-why.png');
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: cover;
         padding: 24px 0;
         color: $white;
         position: relative;
@@ -226,19 +379,12 @@ section {
         display: flex;
         align-items: center;
 
-        @include breakpoint(xl, max) {
-            height: 75vh;
-        }
-
         @include breakpoint(lg, max) {
-            aspect-ratio: 414/284;
-            height: auto;
+            height: 100vh;
         }
 
         @include breakpoint(sm, max) {
             height: auto;
-            aspect-ratio: auto;
-            background-image: url('../img/bg-why-mobile.png');
         }
 
         .text {
@@ -246,11 +392,10 @@ section {
         }
 
         h3 {
-            font-size: 38px;
+            font-size: 48px;
             font-weight: $bold;
             margin-bottom: 24px;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
-            color: #F4FFC8;
 
             @include breakpoint(sm, max) {
                 font-size: 20px;
@@ -280,7 +425,7 @@ section {
 
                 span {
                     margin-left: 8px;
-                    font-size: 20px;
+                    font-size: 24px;
 
                     @include breakpoint(sm, max) {
                         font-size: 14px;
@@ -316,7 +461,7 @@ section {
 
     &.banner-pages {
         background: $primary;
-        background-position: top center;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 24px 0;
@@ -326,7 +471,39 @@ section {
         width: 100%;
         overflow: hidden;
         display: flex;
-        align-items: center;
+        align-items: start;
+
+        &.homepage {
+            background-image: url('../img/bg-dekstop.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            aspect-ratio: 1280/674;
+            display: flex;
+
+            @include breakpoint(xxl, max) {
+                align-items: center;
+
+                .text {
+                    width: 60%;
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            @include breakpoint(md, max) {
+                background-image: url('../img/banner.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                aspect-ratio: 414/510;
+                align-items: start;
+            }
+        }
 
         @include breakpoint(xl, max) {
             height: 80vh;
@@ -334,10 +511,12 @@ section {
 
         @include breakpoint(lg, max) {
             height: auto;
+            aspect-ratio: 414/284;
         }
 
         @include breakpoint(sm, max) {
             height: auto;
+            aspect-ratio: 414/284;
         }
 
 
@@ -350,23 +529,35 @@ section {
             font-weight: $bold;
             margin-bottom: 16px;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
-            color: #F4FFC8;
 
             @include breakpoint(sm, max) {
-                font-size: 20px;
+                font-size: 32px;
             }
         }
 
+        .btn {
+            margin-top: 18px;
+        }
+
         p {
-            font-size: 18px;
-            margin-top: 32px;
-            margin-bottom: 54px;
+            font-size: 20px;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
 
             @include breakpoint(sm, max) {
-                font-size: 12px;
+                font-size: 14px;
                 margin-top: 12px;
                 margin-bottom: 14px;
+            }
+
+            b {
+                font-size: 14px;
+                font-weight: $bold;
+                margin-bottom: 16px;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
+
+                @include breakpoint(sm, max) {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -398,9 +589,135 @@ section {
         }
     }
 
-    &.doctor {
-        background: $bg-soft;
+    &.banner-consult {
+        background: $warning;
+        background-image: url('../img/banner-homepage2.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 24px 0;
+        color: $white;
+        position: relative;
+        height: 500px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
 
+        @include breakpoint(lg, max) {
+            height: auto;
+            aspect-ratio: 414/254;
+        }
+
+        @include breakpoint(md, max) {
+            height: auto;
+        }
+
+        &::after {
+            content: " ";
+            position: absolute;
+            right: 30px;
+            bottom: -20px;
+            border-top: 22px solid #F89500;
+            border-right: 22px solid transparent;
+            border-left: 22px solid transparent;
+            border-bottom: none;
+        }
+
+        .text {
+            width: 60%;
+            text-align: right;
+            position: relative;
+            z-index: 5;
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: $bold;
+            margin-bottom: 16px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
+
+            @include breakpoint(sm, max) {
+                font-size: 20px;
+            }
+        }
+
+        .line {
+            position: relative;
+            text-align: right;
+            margin-bottom: 0;
+            margin-top: 12px;
+            font-weight: normal;
+
+            &::before {
+                content: "";
+                width: 84%;
+                left: 0;
+                top: 50%;
+                margin-top: 0;
+                position: absolute;
+                z-index: 0;
+                height: 0;
+                border-top: 1px solid $white;
+            }
+
+            span {
+                background: transparent;
+                position: relative;
+                z-index: 1;
+                padding-left: 14px;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 32px;
+            margin-bottom: 54px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
+
+            @include breakpoint(sm, max) {
+                font-size: 12px;
+                margin-top: 12px;
+                margin-bottom: 14px;
+            }
+        }
+
+        .img-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            @include breakpoint(lg, max) {
+                right: -100px;
+            }
+
+            @include breakpoint(md, max) {
+                right: -80px;
+            }
+
+            @include breakpoint(sm, max) {
+                right: -50px;
+            }
+
+            img {
+                height: 500px;
+
+                @include breakpoint(sm, max) {
+                    height: 100%;
+                }
+            }
+        }
+
+        .polygon {
+            position: absolute;
+            right: 10%;
+            bottom: -10px;
+        }
+    }
+
+    &.doctor {
         &.nurse {
             .items-doctor {
                 .name {
@@ -421,11 +738,11 @@ section {
             }
 
             .name {
-                background: $white;
+                background: $bg-soft;
                 padding: 70px 8px 8px 8px;
                 text-align: center;
                 border-radius: 10px;
-                min-height: 292px;
+                min-height: 170px;
 
                 @include breakpoint(sm, max) {
                     min-height: 300px;
@@ -449,14 +766,11 @@ section {
     }
 
     &.article {
-        background: $bg-soft;
-        background-image: url('../img/bg-article.png');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: 100% 50%;
-        width: 100%;
-        object-fit: cover;
-
+        background: linear-gradient(to top,
+                $bg-soft 0%,
+                $bg-soft 40%,
+                $primary 40%,
+                $primary 100%);
     }
 
     &.question {
@@ -527,9 +841,9 @@ section {
     }
 
     .accordion-button {
-        color: $white;
+        color: $primary;
         font-weight: 500;
-        background: $primary;
+        background: $white;
         border-radius: 10px;
 
         &:focus {
@@ -539,30 +853,19 @@ section {
         }
     }
 
-    .accordion-button::after {
-        background-image: url('../img/expand-arrow.png') !important;
-        background-size: 32px;
-        width: 32px;
-        height: 32px;
-    }
-
     .accordion-button:not(.collapsed) {
-        background: $primary;
-        color: $white;
+        background: $white;
+        color: $primary;
         border-radius: 10px 10px 0 0;
     }
 
     .accordion-body {
-        background: $white;
+        background: #E7FEFD;
         color: $dark;
         border-radius: 0 0 10px 10px;
-        position: relative;
-        padding-bottom: 70px;
     }
 
     .list-data-faq {
-        color: $muted;
-
         .items-data-faq {
             display: flex;
             align-items: start;
@@ -583,24 +886,15 @@ section {
             font-size: 14px;
         }
 
-        span {
-            font-size: 14px;
-        }
-
         .price {
-            background: #01737F;
+            background: $white;
             padding: 14px;
-            border-radius: 0 0 10px 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            color: $white;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
 
             .value-price {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     }
@@ -760,48 +1054,96 @@ section {
     }
 }
 
-.detail-article {
-    h3.text-primary {
-        color: #00B2AE !important;
-    }
-}
-
-h3.text-primary {
-    color: $title-dark !important;
-
-    @include breakpoint(sm, max) {
-        font-size: 20px;
-        font-weight: 700;
-    }
-}
-
-.title-line {
+.gallery-video {
     position: relative;
-    font-size: 20px;
-    font-weight: $bold;
-    margin-bottom: 16px;
 
-    @include breakpoint(sm, max) {
-        font-size: 20px;
-    }
-
-    &::before {
-        content: "";
+    .thumbnail-yt {
         width: 100%;
-        left: 0;
-        bottom: 0;
-        margin-top: 0;
-        position: absolute;
-        z-index: 0;
-        height: 0;
-        border-top: 2px dashed $muted;
+        aspect-ratio: 1280/720;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
-    span {
+    .play-button {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+
+        img {
+            width: 100px;
+        }
+    }
+}
+
+.rate {
+    background: #F4F4F4;
+    padding: 30px 24px;
+    height: 100%;
+
+    .file {
+        display: flex;
+        gap: 12px;
         background: $white;
-        position: relative;
-        z-index: 1;
-        padding-right: 8px;
-        color: $muted;
+        padding: 12px;
+        border-radius: 10px;
+
+        .name-file {
+            h5 {
+                font-weight: 500;
+                font-size: 18px;
+            }
+
+            a {
+                font-size: 14px;
+                color: #58C949;
+            }
+        }
+    }
+
+    .price {
+        background: #01737F;
+        color: $white;
+        text-align: center;
+        padding: 12px 0;
+        border-radius: 10px;
+        font-size: 18px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .desc {
+        font-size: 14px;
+        color: #736B6B;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        ul {
+            padding-left: 14px;
+        }
+    }
+}
+
+.list-benefits {
+    margin-top: 22px;
+
+    .items-benefits {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 24px;
+
+        .img-benefits {
+            width: 45px;
+            aspect-ratio: 45/45;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
     }
 }

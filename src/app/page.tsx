@@ -11,17 +11,8 @@ import { useSelector } from "react-redux";
 
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
-import Articles from "../../public/assets/article/json/article.json";
 
 const Home = () => {
-  const CutText = (text: string) => {
-    let sentences = text.split("");
-    // Mengambil 100 kalimat pertama
-    let first100Sentences = sentences.slice(0, 40);
-    let resultText = first100Sentences.join("");
-    return resultText;
-  };
-
   const redirectWa = (e: any) => {
     e.preventDefault();
 
@@ -34,21 +25,10 @@ const Home = () => {
         return alert("please fill form correcly");
       }
       const wardingWa = encodeURIComponent(`
-Hello Admin,
-I want to book service with
-following information :
-
-Name : ${name.value}
-Address : ${address.value}
-Service Name : ${service.value}
-----------------------------------------------------------------------     
-Halo Admin,
-Saya ingin melakukan booking vaksin dengan keterangan 
-berikut:
-
+Hello CepatSehat.com by Cepat Sehat Clinic, i want a consultation    
 Nama : ${name.value}
 Alamat : ${address.value} 
-Service Name : ${service.value}`);
+Layanan : ${service.value}`);
       let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
       window.location.href = url;
 
@@ -75,371 +55,151 @@ Service Name : ${service.value}`);
       return (
         <>
           <div className="content">
-            <div className="hero-banner">
+            <section className="banner-pages homepage">
               <div className="container">
                 <div className="text">
-                  <h3 className="title"> Your Trusted Partner in Personalized In-Home Healthcare </h3>
-                  <p className="desc">
-                    We deliver personalized and compassionate healthcare to your home through our experienced professionals.
+                  <h3>IN-HOME VACCINATION SERVICES</h3>
+                  <p>
+                    Savety and Convenience in Maintaining Your Family's Health Administered <b>100%</b> by
+                    <b>Specialized Vaccination</b>
                   </p>
-                  <a href="#book" className="btn btn-warning">
-                    Book Now
+                  <a href="#book" className="btn btn-warning fs-14">
+                    Order Now
                   </a>
                 </div>
               </div>
+            </section>
+
+            <section className="doctor-name">
+              <div className="container">
+                <div className="d-flex align-items-center justify-content-center">
+                  <img src="assets/img/img-doctor.png" className="img-doctor-anak" alt="" />
+                  <div className="name">
+                    <p>
+                      Directly Supervised by Our <b>Pediatrician</b>
+                    </p>
+                    <hr />
+                    <b>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</b>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="row g-0">
+              <div className="col-md-6">
+                <section className="kelebihan">
+                  <div className="container">
+                    <div className="title-flex">
+                      <p>
+                        Advantages of Choosing In-Home Vaccination from
+                        <span className="text-primary"> Cepat Sehat</span>
+                      </p>
+                      <img src="assets/img/ic-kelebihan.png" className="img-title" alt="" />
+                    </div>
+                    <div className="list-benefits">
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-kelebihan/ic-kelebihan01.svg" className="img-benefits" alt="" />
+                        <p>Can determine your own time and place</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-kelebihan/ic-kelebihan02.svg" className="img-benefits" alt="" />
+                        <p>No need to queue and get stuck on the road</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-kelebihan/ic-kelebihan03.svg" className="img-benefits" alt="" />
+                        <p>Consultations with doctors are more flexible, you can ask anything</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-kelebihan/ic-kelebihan04.svg" className="img-benefits" alt="" />
+                        <p>Complete child growth monitoring service</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-kelebihan/ic-kelebihan05.svg" className="img-benefits" alt="" />
+                        <p>Reminder of the next vaccination schedule from the doctor</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div className="col-md-6">
+                <section className="kelebihan bg-white">
+                  <div className="container">
+                    <div className="title-flex">
+                      <p>Benefits of Child Vaccination</p>
+                      <img src="assets/img/ic-manfaat.png" className="img-title" alt="" />
+                    </div>
+                    <div className="list-benefits">
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-manfaat/ic-manfaat01.svg" className="img-benefits" alt="" />
+                        <p>Strengthens the body's immune system</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-manfaat/ic-manfaat02.svg" className="img-benefits" alt="" />
+                        <p>Protects children from serious diseases such as polio, measles, rubella, hepatitis, etc</p>
+                      </div>
+                      <div className="items-benefits">
+                        <img src="assets/img/icon-manfaat/ic-manfaat03.svg" className="img-benefits" alt="" />
+                        <p>Prevent infection from spreading diseases that can be transmitted to other people</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
             </div>
 
-            <section className="service">
-              <div className="container">
-                <h3 className="title-section"> Our Services </h3>
-                <div className="row g-3">
-                  <div className="col-4">
-                    <Link href="/doctor-home-visit" className="box-service">
-                      <i className="icon-menu-doctor-home"></i>
-                      <span className="title-service"> Doctor Home Visit </span>
-                    </Link>
-                  </div>
-                  <div className="col-4">
-                    <Link href="/home-nursing" className="box-service">
-                      <i className="icon-menu-home-nursing"></i>
-                      <span className="title-service"> Home Nursing and Wound Care </span>
-                    </Link>
-                  </div>
-                  <div className="col-4">
-                    <Link href="/remote-telemedicine" className="box-service">
-                      <i className="icon-menu-remote-telemedicine"></i>
-                      <span className="title-service"> Remote Telemedicine </span>
-                    </Link>
-                  </div>
-                  <div className="col-4">
-                    <Link href="/holistic-alternative" className="box-service">
-                      <i className="icon-menu-holistic"></i>
-                      <span className="title-service"> Holistic Alternative Therapies </span>
-                    </Link>
-                  </div>
-                  <div className="col-4">
-                    <Link href="/inhome-therapy" className="box-service">
-                      <i className="icon-menu-in-home-iv"></i>
-                      <span className="title-service"> In-Home IV Therapy & More </span>
-                    </Link>
-                  </div>
-                  <div className="col-4">
-                    <a href="/alternative-telemedicine" className="box-service">
-                      <i className="icon-menu-alternative-telemedicine"></i>
-                      <span className="title-service"> Alternative Telemedicine </span>
-                    </a>
-                  </div>
+            <div className="container">
+              <div className="row mt-0 mt-md-3 gy-4 justify-content-center">
+                <div className="col-md-6">
+                  <section className="jadwal">
+                    <div className="container">
+                      <img src="assets/img/Jadwal Vaksinasi Anak 1.png" className="w-100" alt="" />
+                      <div className="text-center mt-4">
+                        <a
+                          href={"/assets/pdf/jadwal-vaksinasi-anak.pdf"}
+                          className="text-primary fs-14 text-decoration-underline"
+                          download
+                        >
+                          <i className="mdi mdi-download"></i> Jadwal Vaksinasi Anak Umur 0-18 Tahun
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div className="col-md-6">
+                  <section className="jenis">
+                    <div className="container">
+                      <img src="assets/img/Jenis Vaksin dan Harga 1.png" className="w-100" alt="" />
+                      <div className="text-center mt-4">
+                        <a
+                          href={"/assets/pdf/harga-vaksin.pdf"}
+                          className="text-primary fs-14 text-decoration-underline"
+                          download
+                        >
+                          <i className="mdi mdi-download"></i> Download Jenis Vaksin dan Harga
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div className="col-md-8">
+                  <section className="jadwal-imunisasi">
+                    <div className="container">
+                      <p className="text-center fs-18 fw-bold">IDAI Child Immunization Schedule 2023</p>
+                      <img src="assets/img/jadwal-imunisasi-2023-270523 1.png" className="w-100" alt="" />
+                      <div className="text-center mt-4">
+                        <a
+                          href={"/assets/pdf/jadwal-imunisasi.pdf"}
+                          className="text-primary fs-14 text-decoration-underline"
+                          download
+                        >
+                          <i className="mdi mdi-download"></i> Download Jadwal Imunisasi Anak IDAI 2023
+                        </a>
+                      </div>
+                    </div>
+                  </section>
                 </div>
               </div>
-            </section>
-
-            <section className="why">
-              <div className="container">
-                <div className="text">
-                  <h3>Why Choose Us?</h3>
-                  <div className="list-why">
-                    <div className="items-why">
-                      <span>More than 5000 patients well treated in 2023</span>
-                    </div>
-                  </div>
-                  <div className="list-why">
-                    <div className="items-why">
-                      <img src="assets/img/Protect.png" className="img-list" alt="" />
-                      <span>Easy, safe & comfortable service</span>
-                    </div>
-                  </div>
-                  <div className="list-why">
-                    <div className="items-why">
-                      <img src="assets/img/Diploma.png" className="img-list" alt="" />
-                      <span>Supported by certified & trained health workers</span>
-                    </div>
-                  </div>
-                  <div className="list-why">
-                    <div className="items-why">
-                      <img src="assets/img/Last 24 Hours.png" className="img-list" alt="" />
-                      <span>24 hours service</span>
-                    </div>
-                  </div>
-                  <div className="list-why">
-                    <div className="items-why">
-                      <img src="assets/img/Globe Network.png" className="img-list" alt="" />
-                      <span>Wide coverage</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="doctor">
-              <div className="container">
-                <h3 className="title-section"> Our Doctors </h3>
-                <div className="row justify-content-center">
-                  <div className="col-md-12 col-lg-8">
-                    <div className="row g-3 g-md-5 justify-content-center">
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-dewi-f.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Dewi Fransiska, Sp.B</h5>
-                            <p>Surgeon</p>
-                            <span>STR: 3121101422105406</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Mayapada Hospital Kuningan, Jakarta</li>
-                                <li>Eka Hospital, Bekasi</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-dwi-s.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</h5>
-                            <p>Pediatrician</p>
-                            <span>STR: 3321201323154360</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Aysha Islamic Hospital, Bogor</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-ayu-a.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Ayu A. Istiana</h5>
-                            <p>Aesthetic Doctor</p>
-                            <span>STR: 3121100220145699</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Cepat Sehat Clinic, Jakarta</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-ernita-r.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Ernita Rosyanti Dewi</h5>
-                            <p>General Practitioner</p>
-                            <span>STR: 3121100220145544</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Cepat Sehat Clinic, Jakarta</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-irvan-r.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Irvan Rizki Fitri</h5>
-                            <p>General Practitioner</p>
-                            <span>STR: 3111100321119174</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Cepat Sehat Clinic, Jakarta</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-4">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/dr-melchisedek-a.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>dr. Melchisedek A.V.P Marbun</h5>
-                            <p>General Practitioner</p>
-                            <span>STR: 3111100220155405</span>
-                            <hr />
-                            <div className="text-start">
-                              <p>
-                                Practice Location <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                              </p>
-                              <ul className="ps-3">
-                                <li>Cepat Sehat Clinic, Jakarta</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="doctor nurse">
-              <div className="container">
-                <h3 className="title-section"> Our Nurses </h3>
-                <div className="row justify-content-center">
-                  <div className="col-md-12 col-lg-8">
-                    <div className="row g-3 g-md-4 justify-content-center">
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-siti.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Siti Rahma Derlauw</h5>
-                            <span>STR: 3101522234737239</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-loisa.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Loisa Lakamai</h5>
-                            <span>STR: 1701721213519681</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-syarah.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Syarah Azzarah</h5>
-                            <span>STR: 2601521224246624 </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-andi.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Andi Andriansyah S.</h5>
-                            <span>STR: 1201512214112821</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-marsiani.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Marsiani Talo</h5>
-                            <span>STR: 190172122-4444051</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6 col-md-3">
-                        <div className="items-doctor">
-                          <div className="img-doctor">
-                            <img src="assets/img/doctor/nurse-irfan.png" alt="" />
-                          </div>
-                          <div className="name">
-                            <h5>Irfan Mustofa</h5>
-                            <span>STR: 1401511224517960</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="article">
-              <div className="container">
-                <h3 className="title-section text-white"> Article </h3>
-                <div className="swiper swiper-article mt-5">
-                  <div className="swiper-wrapper">
-                    <div className="swiper-wrapper">
-                      <Swiper
-                        loop
-                        modules={[Autoplay]}
-                        spaceBetween={30}
-                        slidesPerView={3.5}
-                        speed={1000}
-                        autoplay={{
-                          delay: 3000,
-                          disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                          320: {
-                            slidesPerView: 1.5,
-                          },
-                          480: {
-                            slidesPerView: 2.5,
-                          },
-                          768: {
-                            slidesPerView: 3.5,
-                          },
-                        }}
-                      >
-                        {Articles &&
-                          Articles.map((item: any, index: number) => (
-                            <>
-                              <SwiperSlide>
-                                <Link href={`/article/${index}`}>
-                                  <div className="card-slide-article">
-                                    <img src={`assets/img/article/article0${index + 1}.jpg`} alt="" />
-                                    <div className="name-article">
-                                      <h6>{CutText(item.Title)}...</h6>
-                                      <p>{CutText(item.DescCard)}...</p>
-                                      <a href="article-detail.html" className="text-muted fs-14">
-                                        read more <i className="mdi mdi-arrow-right"></i>
-                                      </a>
-                                    </div>
-                                  </div>
-                                </Link>
-                              </SwiperSlide>
-                            </>
-                          ))}
-                      </Swiper>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            </div>
 
             <section className="book" id="book">
               <div className="container">
@@ -452,24 +212,40 @@ Service Name : ${service.value}`);
                     </div>
                     <div className="col-md-4">
                       <label className="form-label">Address</label>
-                      <input id="address" type="text" className="form-control" placeholder="Your Address" />
+                      <input type="text" className="form-control" id="address" placeholder="Your Address" />
                     </div>
                     <div className="col-md-4">
                       <label className="form-label">Service</label>
-                      <select id="service" className="form-select form-control" aria-label="Default select example">
-                        <option value="Select Service" selected>
-                          Select Service
-                        </option>
-                        <option value="Doctor Home Visit">Doctor Home Visit</option>
-                        <option value="Home Nursing and Wound Care">Home Nursing and Wound Care</option>
-                        <option value="Remote Telemedicine">Remote Telemedicine</option>
-                        <option value="Holistic Alternative Therapies">Holistic Alternative Therapies</option>
-                        <option value="In-Home IV Therapy & more">In-Home IV Therapy & more</option>
-                        <option value="Alternative Telemedicine">Alternative Telemedicine</option>
+                      <select className="form-select  form-control" id="service" aria-label="Default select example">
+                        <option>Select Service</option>
+                        <option value="BCG Vaccine">BCG Vaccine</option>
+                        <option value="Measles Vaccine">Measles Vaccine</option>
+                        <option value="Dengue Vaccine">Dengue Vaccine</option>
+                        <option value="Polio Vaccine">Polio Vaccine</option>
+                        <option value="DtwP Vaccine">DtwP Vaccine</option>
+                        <option value="Child HEP A Vaccine">Child HEP A Vaccine</option>
+                        <option value="Adult HEP A Vaccine">Adult HEP A Vaccine</option>
+                        <option value="Child HEP B Vaccine">Child HEP B Vaccine</option>
+                        <option value="Adult HEP B Vaccine">Adult HEP B Vaccine</option>
+                        <option value="Bivalent Vaccine">Bivalent Vaccine</option>
+                        <option value="Quadrivalent Vaccine">Quadrivalent Vaccine</option>
+                        <option value="Nonavalent Vaccines">Nonavalent Vaccines</option>
+                        <option value="Influenza Vaccine">Influenza Vaccine</option>
+                        <option value="JE Vaccine">JE Vaccine</option>
+                        <option value="Meningitis Vaccine">Meningitis Vaccine</option>
+                        <option value="MMR Vaccine">MMR Vaccine</option>
+                        <option value="MR Vaccine">MR Vaccine</option>
+                        <option value="Pneumonia Vaccine">Pneumonia Vaccine</option>
+                        <option value="Rabies Vaccine">Rabies Vaccine</option>
+                        <option value="Rotavirus Vaccine">Rotavirus Vaccine</option>
+                        <option value="TD Vaccine">TD Vaccine</option>
+                        <option value="TDAP Vaccine">TDAP Vaccine</option>
+                        <option value="Yellow Fever Vaccine">Yellow Fever Vaccine</option>
+                        <option value="Other Vaccines">Other Vaccines</option>
                       </select>
                     </div>
                   </div>
-                  <div className="row g-3 justify-content-center align-items-stretch">
+                  <div className="row g-3 justify-content-center">
                     <div className="col-6 col-md-3">
                       <button type="submit" onClick={redirectWa} className="btn btn-whatsapp w-100">
                         <i className="mdi mdi-whatsapp fs-18 me-2"></i>

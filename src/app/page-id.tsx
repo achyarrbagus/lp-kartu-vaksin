@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
-import Articles from "../../public/assets/article/json/article-id.json";
 
 const HomeId = () => {
   const CutText = (text: string) => {
@@ -34,12 +33,10 @@ const HomeId = () => {
         return alert("please fill form correcly");
       }
       const wardingWa = encodeURIComponent(`
-Hallo CepatSehat.com by Klinik Cepat Sehat, saya ingin konsultasi
-
-Nama : ${name.value}
-Alamat : ${address.value} 
+Hallo CepatSehat.com by Klinik Cepat Sehat, saya ingin konsultasi      
+Name : ${name.value}
+Service : ${address.value} 
 Layanan : ${service.value}`);
-
       let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
       window.location.href = url;
 
@@ -53,378 +50,156 @@ Layanan : ${service.value}`);
     window.location.replace("https://t.me/InfusionJakarta");
   };
 
+  const lang = useSelector((state: any) => state.lang.value);
+
   return (
     <>
       <div className="content">
-        <div className="hero-banner">
+        <section className="banner-pages homepage">
           <div className="container">
             <div className="text">
-              <h3 className="title">Mitra Terpercaya Anda dalam Perawatan Kesehatan di Rumah</h3>
-              <p className="desc">
-                Kami memberikan perawatan kesehatan personal ke rumah Anda melalui para profesional berpengalaman kami.
+              <h3>LAYANAN VAKSINASI DI RUMAH</h3>
+              <p>
+                Keamanan dan Kemudahan Menjaga Kesehatan Keluarga Anda <b>100%</b> Diberikan Oleh <b>Dokter Khusus Vaksinasi</b>
               </p>
-              <a href="#book" className="btn btn-warning">
-                Pesan
+              <a href="#book" className="btn btn-warning fs-14">
+                {" "}
+                Pesan Sekarang{" "}
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="doctor-name">
+          <div className="container">
+            <div className="d-flex align-items-center justify-content-center">
+              <img src="assets/img/img-doctor.png" className="img-doctor-anak" alt="" />
+              <div className="name">
+                <p>
+                  Diawasi langsung oleh
+                  <b> Dokter Anak </b> kami
+                </p>
+                <hr />
+                <b>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</b>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="row g-0">
+          <div className="col-md-6">
+            <section className="kelebihan">
+              <div className="container">
+                <div className="title-flex">
+                  <p>
+                    Kelebihan Memilih Vaksin di Rumah dari <span className="text-primary"> Cepat Sehat</span>
+                  </p>
+                  <img src="assets/img/ic-kelebihan.png" className="img-title" alt="" />
+                </div>
+                <div className="list-benefits">
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-kelebihan/ic-kelebihan01.svg" className="img-benefits" alt="" />
+                    <p>Bisa menentukan waktu dan tempat sendiri</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-kelebihan/ic-kelebihan02.svg" className="img-benefits" alt="" />
+                    <p>Tidak perlu repot antri dan macet di jalan</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-kelebihan/ic-kelebihan03.svg" className="img-benefits" alt="" />
+                    <p>Konsultasi dengan dokter lebih leluasa, bisa tanya apa saja</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-kelebihan/ic-kelebihan04.svg" className="img-benefits" alt="" />
+                    <p>Layanan pemantauan tumbuh kembang anak yang lengkap</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-kelebihan/ic-kelebihan05.svg" className="img-benefits" alt="" />
+                    <p>Pengingat jadwal vaksinasi berikutnya dari dokter</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div className="col-md-6">
+            <section className="kelebihan bg-white">
+              <div className="container">
+                <div className="title-flex">
+                  <p>Manfaat Vaksinasi Anak</p>
+                  <img src="assets/img/ic-manfaat.png" className="img-title" alt="" />
+                </div>
+                <div className="list-benefits">
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-manfaat/ic-manfaat01.svg" className="img-benefits" alt="" />
+                    <p>Memperkuat sistem imun tubuh</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-manfaat/ic-manfaat02.svg" className="img-benefits" alt="" />
+                    <p>Melindungi anak dari penyakit serius seperti polio, campak, rubela, hepatitis, dll</p>
+                  </div>
+                  <div className="items-benefits">
+                    <img src="assets/img/icon-manfaat/ic-manfaat03.svg" className="img-benefits" alt="" />
+                    <p>Mencegah infeksi penyebaran penyakit yang dapat menular ke orang lain</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="row mt-0 mt-md-3 gy-4 justify-content-center">
+            <div className="col-md-6">
+              <section className="jadwal">
+                <div className="container">
+                  <img src="assets/img/Jadwal Vaksinasi Anak 1.png" className="w-100" alt="" />
+                  <div className="text-center mt-4">
+                    <a
+                      href={"/assets/pdf/jadwal-vaksinasi-anak.pdf"}
+                      className="text-primary fs-14 text-decoration-underline"
+                      download
+                    >
+                      <i className="mdi mdi-download"></i> Jadwal Vaksinasi Anak Umur 0-18 Tahun
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div className="col-md-6">
+              <section className="jenis">
+                <div className="container">
+                  <img src="assets/img/Jenis Vaksin dan Harga 1.png" className="w-100" alt="" />
+                  <div className="text-center mt-4">
+                    <a href={"/assets/pdf/harga-vaksin.pdf"} className="text-primary fs-14 text-decoration-underline" download>
+                      <i className="mdi mdi-download"></i> Download Jenis Vaksin dan Harga
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div className="col-md-8">
+              <section className="jadwal-imunisasi">
+                <div className="container">
+                  <p className="text-center fs-18 fw-bold">Jadwal Imunisasi Anak IDAI 2023</p>
+                  <img src="assets/img/jadwal-imunisasi-2023-270523 1.png" className="w-100" alt="" />
+                  <div className="text-center mt-4">
+                    <a
+                      href={"/assets/pdf/jadwal-imunisasi.pdf"}
+                      className="text-primary fs-14 text-decoration-underline"
+                      download
+                    >
+                      <i className="mdi mdi-download"></i> Download Jadwal Imunisasi Anak IDAI 2023
+                    </a>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
 
-        <section className="service">
-          <div className="container">
-            <h3 className="title-section"> Layanan Kami </h3>
-            <div className="row g-3">
-              <div className="col-4">
-                <Link href="/doctor-home-visit" className="box-service">
-                  <i className="icon-menu-doctor-home"></i>
-                  <span className="title-service"> Kunjungan Dokter ke Rumah </span>
-                </Link>
-              </div>
-              <div className="col-4">
-                <Link href="/home-nursing" className="box-service">
-                  <i className="icon-menu-home-nursing"></i>
-                  <span className="title-service"> Perawatan di Rumah & Perawatan Luka </span>
-                </Link>
-              </div>
-              <div className="col-4">
-                <Link href="/remote-telemedicine" className="box-service">
-                  <i className="icon-menu-remote-telemedicine"></i>
-                  <span className="title-service"> Telemedis Jarak Jauh </span>
-                </Link>
-              </div>
-              <div className="col-4">
-                <Link href="/holistic-alternative" className="box-service">
-                  <i className="icon-menu-holistic"></i>
-                  <span className="title-service"> Terapi Alternatif Holistik </span>
-                </Link>
-              </div>
-              <div className="col-4">
-                <Link href="/inhome-therapy" className="box-service">
-                  <i className="icon-menu-in-home-iv"></i>
-                  <span className="title-service"> Terapi IV di Rumah & Lainnya </span>
-                </Link>
-              </div>
-              <div className="col-4">
-                <a href="/alternative-telemedicine" className="box-service">
-                  <i className="icon-menu-alternative-telemedicine"></i>
-                  <span className="title-service"> Telemedis Alternatif </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="why">
-          <div className="container">
-            <div className="text">
-              <h3>Mengapa Memilih Kami?</h3>
-              <div className="list-why">
-                <div className="items-why">
-                  <span>Sudah menangani 5000 pasien lebih di tahun 2023</span>
-                </div>
-              </div>
-              <div className="list-why">
-                <div className="items-why">
-                  <img src="assets/img/Protect.png" className="img-list" alt="" />
-                  <span>Layanan yang mudah, aman, dan nyaman</span>
-                </div>
-              </div>
-              <div className="list-why">
-                <div className="items-why">
-                  <img src="assets/img/Diploma.png" className="img-list" alt="" />
-                  <span>Didukung oleh tenaga kesehatan bersertifikat dan terlatih</span>
-                </div>
-              </div>
-              <div className="list-why">
-                <div className="items-why">
-                  <img src="assets/img/Last 24 Hours.png" className="img-list" alt="" />
-                  <span>Layanan 24 jam</span>
-                </div>
-              </div>
-              <div className="list-why">
-                <div className="items-why">
-                  <img src="assets/img/Globe Network.png" className="img-list" alt="" />
-                  <span>Cakupan yang luas</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="doctor">
-          <div className="container">
-            <h3 className="title-section"> Dokter Kami </h3>
-            <div className="row justify-content-center">
-              <div className="col-md-12 col-lg-8">
-                <div className="row g-3 g-md-5 justify-content-center">
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-dewi-f.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Dewi Fransiska, Sp.B</h5>
-                        <p>Dokter Bedah</p>
-                        <span>STR: 3121101422105406</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>RS Mayapada Kuningan, Jakarta</li>
-                            <li>RS Eka, Bekasi</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-dwi-s.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</h5>
-                        <p>Dokter Anak</p>
-                        <span>STR: 3321201323154360</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>RS Islam Aysha, Bogor</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-ayu-a.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Ayu A. Istiana</h5>
-                        <p>Dokter Estetika</p>
-                        <span>STR: 3121100220145699</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>Klinik Cepat Sehat, Jakarta</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-ernita-r.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Ernita Rosyanti Dewi</h5>
-                        <p>Dokter Umum</p>
-                        <span>STR: 3121100220145544</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>Klinik Cepat Sehat, Jakarta</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-irvan-r.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Irvan Rizki Fitri</h5>
-                        <p>Dokter Umum</p>
-                        <span>STR: 3111100321119174</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>Klinik Cepat Sehat, Jakarta</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-4">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/dr-melchisedek-a.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>dr. Melchisedek A.V.P Marbun</h5>
-                        <p>Dokter Umum</p>
-                        <span>STR: 3111100220155405</span>
-                        <hr />
-                        <div className="text-start">
-                          <p>
-                            Lokasi Praktik <i className="mdi mdi-map-marker fs-18 ms-2"></i>
-                          </p>
-                          <ul className="ps-3">
-                            <li>Klinik Cepat Sehat, Jakarta</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="doctor nurse">
-          <div className="container">
-            <h3 className="title-section"> Perawat Kami </h3>
-            <div className="row justify-content-center">
-              <div className="col-md-12 col-lg-8">
-                <div className="row g-3 g-md-4 justify-content-center">
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-siti.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Siti Rahma Derlauw</h5>
-                        <span>STR: 3101522234737239</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-loisa.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Loisa Lakamai</h5>
-                        <span>STR: 1701721213519681</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-syarah.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Syarah Azzarah</h5>
-                        <span>STR: 2601521224246624 </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-andi.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Andi Andriansyah S.</h5>
-                        <span>STR: 1201512214112821</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-marsiani.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Marsiani Talo</h5>
-                        <span>STR: 190172122-4444051</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-md-3">
-                    <div className="items-doctor">
-                      <div className="img-doctor">
-                        <img src="assets/img/doctor/nurse-irfan.png" alt="" />
-                      </div>
-                      <div className="name">
-                        <h5>Irfan Mustofa</h5>
-                        <span>STR: 1401511224517960</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="article">
-          <div className="container">
-            <h3 className="title-section text-white">Artikel</h3>
-            <div className="swiper swiper-article mt-5">
-              <div className="swiper-wrapper">
-                <div className="swiper-wrapper">
-                  <Swiper
-                    loop
-                    modules={[Autoplay]}
-                    spaceBetween={30}
-                    slidesPerView={3.5}
-                    speed={1000}
-                    autoplay={{
-                      delay: 3000,
-                      disableOnInteraction: false,
-                    }}
-                    breakpoints={{
-                      320: {
-                        slidesPerView: 1.5,
-                      },
-                      480: {
-                        slidesPerView: 2.5,
-                      },
-                      768: {
-                        slidesPerView: 3.5,
-                      },
-                    }}
-                  >
-                    {Articles &&
-                      Articles.map((item: any, index: number) => (
-                        <>
-                          <SwiperSlide>
-                            <Link href={`/article/${index}`}>
-                              <div className="card-slide-article">
-                                <img src={`assets/img/article/article0${index + 1}.jpg`} alt="" />
-                                <div className="name-article">
-                                  <h6>{CutText(item.Title)}...</h6>
-                                  <p>{CutText(item.DescCard)}...</p>
-                                  <a href="article-detail.html" className="text-muted fs-14">
-                                    lebih lanjut <i className="mdi mdi-arrow-right"></i>
-                                  </a>
-                                </div>
-                              </div>
-                            </Link>
-                          </SwiperSlide>
-                        </>
-                      ))}
-                  </Swiper>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="book" id="book">
           <div className="container">
-            <h3 className="title-section"> Pesan </h3>
+            <h3 className="title-section"> Pesan Sekarang </h3>
             <form action="#">
               <div className="row mb-3 g-3">
                 <div className="col-md-4">
@@ -433,24 +208,39 @@ Layanan : ${service.value}`);
                 </div>
                 <div className="col-md-4">
                   <label className="form-label">Alamat</label>
-                  <input id="address" type="text" className="form-control" placeholder="Alamat Anda" />
+                  <input type="text" className="form-control" id="address" placeholder="Alamat anda" />
                 </div>
                 <div className="col-md-4">
                   <label className="form-label">Layanan</label>
-                  <select id="service" className="form-select form-control" aria-label="Default select example">
-                    <option value="Select Service" selected>
-                      Pilih Layanan
-                    </option>
-                    <option value="Kunjungan Dokter ke Rumah"> Kunjungan Dokter ke Rumah</option>
-                    <option value="Perawatan di Rumah dan Perawatan Luka"> Perawatan di Rumah dan Perawatan Luka</option>
-                    <option value="Telemedis Jarak Jauh">Telemedis Jarak Jauh</option>
-                    <option value="Terapi Alternatif Holistik">Terapi Alternatif Holistik</option>
-                    <option value="Terapi IV di Rumah & Lainnya">Terapi IV di Rumah & Lainnya</option>
-                    <option value="Telemedis Alternatif">Telemedis Alternatif</option>
+                  <select className="form-select  form-control" id="service" aria-label="Default select example">
+                    <option>Pilih Layanan</option>
+                    <option value="Vaksin BCG">Vaksin BCG</option>
+                    <option value="Vaksin Campak">Vaksin Campak</option>
+                    <option value="Vaksin DBD">Vaksin DBD</option>
+                    <option value="Vaksin Polio">Vaksin Polio</option>
+                    <option value="Vaksin DtwP">Vaksin DtwP</option>
+                    <option value="Vaksin HEP A Anak">Vaksin HEP A Anak</option>
+                    <option value="Vaksin HEP A Dewasa">Vaksin HEP A Dewasak</option>
+                    <option value="Vaksin HEP B Anak">Vaksin HEP B Anak</option>
+                    <option value="Vaksin HEP B Dewasa">Adult HEP B Vaccine</option>
+                    <option value="Vaksin Bivalen">Vaksin Bivalen</option>
+                    <option value="Vaksin Kuadrivalen">Vaksin Kuadrivalen</option>
+                    <option value="Vaksin Nonavalen">Vaksin Nonavalen</option>
+                    <option value="Vaksin Influenza">Vaksin Influenza</option>
+                    <option value="Vaksin Meningitis">Vaksin Meningitis</option>
+                    <option value="Vaksin MMR">Vaksin MMR</option>
+                    <option value="Vaksin MR">Vaksin MR</option>
+                    <option value="Vaksin Pneumonia">Vaksin Pneumonia</option>
+                    <option value="Vaksin Rabies">Vaksin Rabies</option>
+                    <option value="Vaksin Rotavirus">Vaksin Rotavirus</option>
+                    <option value="Vaksin TD">Vaksin TD</option>
+                    <option value="Vaksin TDAP">Vaksin TDAP</option>
+                    <option value="Vaksin Yellow Fever">Vaksin Yellow Fever</option>
+                    <option value="Vaksin lainnya">Vaksin lainnya</option>
                   </select>
                 </div>
               </div>
-              <div className="row g-3 justify-content-center align-items-stretch">
+              <div className="row g-3 justify-content-center">
                 <div className="col-6 col-md-3">
                   <button type="submit" onClick={redirectWa} className="btn btn-whatsapp w-100">
                     <i className="mdi mdi-whatsapp fs-18 me-2"></i>
