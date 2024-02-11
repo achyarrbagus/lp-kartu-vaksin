@@ -4,44 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { setLang } from "../../../lib/redux/slices/langSlice/langSlice";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 function LayoutWrapper({ children }) {
   const router = useRouter();
 
   const lang = useSelector((state) => state.lang.value);
   const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-
-    // Hotjar tracking code
-    (function (h, o, t, j, a, r) {
-      h.hj =
-        h.hj ||
-        function () {
-          (h.hj.q = h.hj.q || []).push(arguments);
-        };
-      h._hjSettings = { hjid: 3831085, hjsv: 6 };
-      a = o.getElementsByTagName("head")[0];
-      r = o.createElement("script");
-      r.async = 1;
-      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-
-    // gtm tracking
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != "dataLayer" ? "&l=" + l : "";
-      j.async = true;
-      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-PFX6ZWQ4");
-  }, []);
 
   return (
     <>
@@ -50,7 +20,10 @@ function LayoutWrapper({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cepat Sehat</title>
         {/* <!-- swiper --> */}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
 
         {/* <!-- icons --> */}
         <link
@@ -129,12 +102,20 @@ function LayoutWrapper({ children }) {
 
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <button onClick={() => dispatch(setLang("EN"))} className="dropdown-item" type="button">
+                  <button
+                    onClick={() => dispatch(setLang("EN"))}
+                    className="dropdown-item"
+                    type="button"
+                  >
                     English
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => dispatch(setLang("ID"))} className="dropdown-item" type="button">
+                  <button
+                    onClick={() => dispatch(setLang("ID"))}
+                    className="dropdown-item"
+                    type="button"
+                  >
                     Indonesia
                   </button>
                 </li>
@@ -145,30 +126,30 @@ function LayoutWrapper({ children }) {
       </nav>
       {children}
 
-      <div
-        className="btn-float"
-        data-bs-toggle="tooltip"
-        data-bs-placement="left"
-        data-bs-original-title="Consult with Our Medical Team"
-        data-bs-custom-class="custom-tooltip"
+      <OverlayTrigger
+        placement="left"
+        overlay={
+          <Tooltip id="tooltip-left" className="custom-tooltip">
+            Consult with Our Medical Team
+          </Tooltip>
+        }
       >
-        <div className="btn-circle whatsapp">
-          <a href="https://api.whatsapp.com/send/?phone=6282211189009&text&type=phone_number&app_absent=0" className="text-white">
-            <i className="fs-24 fa-brands fa-whatsapp"></i>
-          </a>
+        <div className="btn-float">
+          <div className="btn-circle whatsapp">
+            <a
+              href="https://api.whatsapp.com/send/?phone=6282211189009&text&type=phone_number&app_absent=0"
+              className="text-white"
+            >
+              <i className="fs-24 fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+          <div className="btn-circle telegram">
+            <a href="https://t.me/unbanking" className="text-white">
+              <i className="fs-24 fa-brands fa-telegram"></i>
+            </a>
+          </div>
         </div>
-        <div className="btn-circle telegram">
-          <a href="https://t.me/unbanking" className="text-white">
-            <i className="fs-24 fa-brands fa-telegram"></i>
-          </a>
-        </div>
-      </div>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PFX6ZWQ4"
-        height="0"
-        width="0"
-        style={{ display: "display:none;visibility:hidden" }}
-      ></iframe>
+      </OverlayTrigger>
 
       <footer className="footer">
         <div className="container">
@@ -176,13 +157,18 @@ function LayoutWrapper({ children }) {
             <Link href="/">
               <img src="assets/img/logo-white.png" className="logo" alt="" />
             </Link>
-            <img src="assets/img/logo-atensi.png" className="logo-atensi ms-auto" alt="" />
+            <img
+              src="assets/img/logo-atensi.png"
+              className="logo-atensi ms-auto"
+              alt=""
+            />
           </div>
           <div className="row mt-4">
             <div className="col-md-8 text-white">
               <h4 className="fs-14">PT Cepat Sehat Indonesia</h4>
               <p>
-                Jalan Peternakan No. 13, Kel. Tengah, Kec. Kramat jati, Kota Adm. Jakarta Timur, Provinsi DKI Jakarta 13510 <br />
+                Jalan Peternakan No. 13, Kel. Tengah, Kec. Kramat jati, Kota
+                Adm. Jakarta Timur, Provinsi DKI Jakarta 13510 <br />
                 sehatcepat.com
               </p>
             </div>
@@ -198,10 +184,16 @@ function LayoutWrapper({ children }) {
                   <Link href="#" className="list-inline-item text-white">
                     <i className="mdi mdi-web fs-24"></i>
                   </Link>
-                  <Link href="https://www.facebook.com/klinikcepatsehat" className="list-inline-item text-white">
+                  <Link
+                    href="https://www.facebook.com/klinikcepatsehat"
+                    className="list-inline-item text-white"
+                  >
                     <i className="mdi mdi-facebook fs-24"></i>
                   </Link>
-                  <Link href="https://www.instagram.com/sehatcepat.mobi/ " className="list-inline-item text-white">
+                  <Link
+                    href="https://www.instagram.com/sehatcepat.mobi/ "
+                    className="list-inline-item text-white"
+                  >
                     <i className="mdi mdi-instagram fs-24"></i>
                   </Link>
                 </div>
@@ -209,7 +201,9 @@ function LayoutWrapper({ children }) {
             </div>
           </div>
         </div>
-        <div className="footer-bottom">Copyright © 2024 Cepat Sehat. All Rights Reserved.</div>
+        <div className="footer-bottom">
+          Copyright © 2024 Cepat Sehat. All Rights Reserved.
+        </div>
       </footer>
 
       <script type="module" src="/src/main.tsx"></script>

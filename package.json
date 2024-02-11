@@ -1,27 +1,28 @@
 {
-<<<<<<< HEAD
   "name": "cepatsehat-v2-next",
-=======
-  "name": "lp-kartu-vaksin",
->>>>>>> 10572eb6f33342a9e132261be7166349e461b5bc
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-<<<<<<< HEAD
     "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
+    "@tanstack/react-query": "^5.20.1",
+    "@tanstack/react-query-devtools": "^5.20.1",
+    "autoprefixer": "^10.4.17",
+    "bootstrap": "^5.3.2",
     "next": "^14.1.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.29",
@@ -30,48 +31,5 @@
     "@types/react-dom": "^18",
     "@types/swiper": "^6.0.0",
     "typescript": "^5"
-=======
-    "lint": "next lint",
-    "test": "echo No tests found.",
-    "format": "prettier --write --ignore-path=.gitignore .",
-    "format:check": "prettier --check --ignore-path=.gitignore .",
-    "deploy:vercel": "vercel"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@types/node": "20.5.7",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "antd": "^5.8.5",
-    "eslint": "8.48.0",
-    "eslint-config-next": "13.4.19",
-    "flowbite": "^1.8.1",
-    "flowbite-react": "^0.5.0",
-    "framer-motion": "^9.1.7",
-    "next": "13.4.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.45.4"
-  },
-  "devDependencies": {
-    "@tanstack/react-query": "^4.33.0",
-    "@tanstack/react-query-devtools": "^4.33.0",
-    "autoprefixer": "^10.4.15",
-    "css-loader": "^6.8.1",
-    "eslint-config-prettier": "^8.10.0",
-    "file-loader": "^6.2.0",
-    "postcss": "^8.4.28",
-    "prettier": "^2.8.8",
-    "react-icons": "^4.10.1",
-    "style-loader": "^3.3.3",
-    "tailwindcss": "^3.3.3",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2",
-    "vercel": "^30.2.3",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
->>>>>>> 10572eb6f33342a9e132261be7166349e461b5bc
   }
 }
