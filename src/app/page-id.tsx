@@ -63,7 +63,7 @@ Layanan : ${service.value}`);
         <section className="banner-pages homepage">
           <div className="container">
             <div className="text">
-              <h3>LAYANAN VAKSINASI DI RUMAH</h3>
+              <h3>LAYANAN VAKSINASI ANAK DI RUMAH</h3>
               <p>
                 Keamanan dan Kemudahan Menjaga Kesehatan Keluarga Anda{" "}
                 <b>100%</b> Diberikan Oleh <b>Dokter Khusus Vaksinasi</b>
@@ -90,7 +90,7 @@ Layanan : ${service.value}`);
                   <b> Dokter Anak </b> kami
                 </p>
                 <hr />
-                <b>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</b>
+                <b>dr. Dwi S. A. Aprilizia, Sp.A</b>
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ Layanan : ${service.value}`);
                   />
                   <div className="text-center mt-4">
                     <a
-                      href={"/assets/pdf/jadwal-vaksinasi-anak.pdf"}
+                      href={"/assets/pdf/Jadwal-Vaksinasi-Anak.pdf"}
                       className="text-primary fs-14 text-decoration-underline"
                       download
                     >

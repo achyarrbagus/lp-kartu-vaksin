@@ -63,7 +63,7 @@ Services : ${service.value}`);
             <section className="banner-pages homepage">
               <div className="container">
                 <div className="text">
-                  <h3>IN-HOME VACCINATION SERVICES</h3>
+                  <h3>IN-HOME CHILD VACCINATION SERVICES</h3>
                   <p>
                     Savety and Convenience in Maintaining Your Family's Health
                     Administered <b>100%</b> by
@@ -89,7 +89,7 @@ Services : ${service.value}`);
                       Directly Supervised by Our <b>Pediatrician</b>
                     </p>
                     <hr />
-                    <b>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</b>
+                    <b>dr. Dwi S. A. Aprilizia, Sp.A</b>
                   </div>
                 </div>
               </div>
@@ -221,7 +221,7 @@ Services : ${service.value}`);
                       />
                       <div className="text-center mt-4">
                         <a
-                          href={"/assets/pdf/jadwal-vaksinasi-anak.pdf"}
+                          href={"/assets/pdf/Jadwal-Vaksinasi-Anak.pdf"}
                           className="text-primary fs-14 text-decoration-underline"
                           download
                         >
