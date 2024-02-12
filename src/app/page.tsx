@@ -30,9 +30,9 @@ const Home = () => {
       }
       const wardingWa = encodeURIComponent(`
 Hello CepatSehat.com by Cepat Sehat Clinic, i want a consultation    
-Nama : ${name.value}
-Alamat : ${address.value} 
-Layanan : ${service.value}`);
+Name : ${name.value}
+Address : ${address.value} 
+Servicess : ${service.value}`);
       let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
       window.location.href = url;
 
@@ -224,8 +224,8 @@ Layanan : ${service.value}`);
                           className="text-primary fs-14 text-decoration-underline"
                           download
                         >
-                          <i className="mdi mdi-download"></i> Jadwal Vaksinasi
-                          Anak Umur 0-18 Tahun
+                          <i className="mdi mdi-download"></i> Child
+                          Vaccinations Schedule Aged 0-18 Years
                         </a>
                       </div>
                     </div>
@@ -245,8 +245,8 @@ Layanan : ${service.value}`);
                           className="text-primary fs-14 text-decoration-underline"
                           download
                         >
-                          <i className="mdi mdi-download"></i> Download Jenis
-                          Vaksin dan Harga
+                          <i className="mdi mdi-download"></i> Download Vaccine
+                          Types and Prices
                         </a>
                       </div>
                     </div>
@@ -269,8 +269,8 @@ Layanan : ${service.value}`);
                           className="text-primary fs-14 text-decoration-underline"
                           download
                         >
-                          <i className="mdi mdi-download"></i> Download Jadwal
-                          Imunisasi Anak IDAI 2023
+                          <i className="mdi mdi-download"></i> Download IDAI
+                          2023 Child Immunization Schedule
                         </a>
                       </div>
                     </div>
