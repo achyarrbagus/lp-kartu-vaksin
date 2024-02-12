@@ -25,9 +25,6 @@ const Home = () => {
       "service"
     ) as HTMLInputElement | null;
     if (name?.value && address?.value && service?.value) {
-      if (service.value == "Select Service") {
-        return alert("please fill form correcly");
-      }
       const wardingWa = encodeURIComponent(`
 Hello CepatSehat.com by Cepat Sehat Clinic, i want a consultation 
    
@@ -39,7 +36,14 @@ Services : ${service.value}`);
 
       return;
     } else {
-      alert("please fill form with correctly");
+      const wardingWa = encodeURIComponent(`
+Hello CepatSehat.com by Cepat Sehat Clinic, i want a consultation 
+   
+Name : 
+Address : 
+Services :`);
+      let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
+      window.location.href = url;
     }
   };
 
@@ -319,14 +323,8 @@ Services : ${service.value}`);
                         <option value="Child HEP A Vaccine">
                           Child HEP A Vaccine
                         </option>
-                        <option value="Adult HEP A Vaccine">
-                          Adult HEP A Vaccine
-                        </option>
                         <option value="Child HEP B Vaccine">
                           Child HEP B Vaccine
-                        </option>
-                        <option value="Adult HEP B Vaccine">
-                          Adult HEP B Vaccine
                         </option>
                         <option value="Bivalent Vaccine">
                           Bivalent Vaccine

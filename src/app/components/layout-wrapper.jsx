@@ -8,10 +8,25 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 function LayoutWrapper({ children }) {
-  const router = useRouter();
-
   const lang = useSelector((state) => state.lang.value);
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  const redirectWa = () => {
+    let wardingWa = encodeURIComponent(
+      `Hallo, Saya ingin pesan vaksin anak di rumah`
+    );
+    if (lang == "EN") {
+      wardingWa = encodeURIComponent(
+        `Hello, I want to order child vaccines at home`
+      );
+    }
+
+    let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
+    window.location.href = url;
+
+    return;
+  };
 
   return (
     <>
@@ -136,12 +151,9 @@ function LayoutWrapper({ children }) {
       >
         <div className="btn-float">
           <div className="btn-circle whatsapp">
-            <a
-              href="https://api.whatsapp.com/send/?phone=6282211189009&text&type=phone_number&app_absent=0"
-              className="text-white"
-            >
+            <div onClick={redirectWa} className="text-white">
               <i className="fs-24 fa-brands fa-whatsapp"></i>
-            </a>
+            </div>
           </div>
           <div className="btn-circle telegram">
             <a href="https://t.me/unbanking" className="text-white">

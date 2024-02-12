@@ -47,7 +47,14 @@ Layanan : ${service.value}`);
 
       return;
     } else {
-      alert("please fill form with correctly");
+      const wardingWa = encodeURIComponent(`
+Hallo CepatSehat.com by Klinik Cepat Sehat, saya ingin konsultasi 
+   
+Nama : 
+Alamat : 
+Layanan :`);
+      let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
+      window.location.href = url;
     }
   };
 
@@ -63,7 +70,9 @@ Layanan : ${service.value}`);
         <section className="banner-pages homepage">
           <div className="container">
             <div className="text">
-              <h3>LAYANAN VAKSINASI ANAK DI RUMAH</h3>
+              <h3>
+                LAYANAN <br /> VAKSINASI ANAK <br /> DI RUMAH
+              </h3>
               <p>
                 Keamanan dan Kemudahan Menjaga Kesehatan Keluarga Anda{" "}
                 <b>100%</b> Diberikan Oleh <b>Dokter Khusus Vaksinasi</b>
@@ -315,13 +324,7 @@ Layanan : ${service.value}`);
                     <option value="Vaksin Polio">Vaksin Polio</option>
                     <option value="Vaksin DtwP">Vaksin DtwP</option>
                     <option value="Vaksin HEP A Anak">Vaksin HEP A Anak</option>
-                    <option value="Vaksin HEP A Dewasa">
-                      Vaksin HEP A Dewasak
-                    </option>
                     <option value="Vaksin HEP B Anak">Vaksin HEP B Anak</option>
-                    <option value="Vaksin HEP B Dewasa">
-                      Adult HEP B Vaccine
-                    </option>
                     <option value="Vaksin Bivalen">Vaksin Bivalen</option>
                     <option value="Vaksin Kuadrivalen">
                       Vaksin Kuadrivalen
