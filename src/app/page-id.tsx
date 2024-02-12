@@ -39,7 +39,7 @@ const HomeId = () => {
       const wardingWa = encodeURIComponent(`
 Hallo CepatSehat.com by Klinik Cepat Sehat, saya ingin konsultasi 
 
-Name : ${name.value}
+Nama : ${name.value}
 Alamat : ${address.value} 
 Layanan : ${service.value}`);
       let url = `https://api.whatsapp.com/send/?phone=6282211189009&text=${wardingWa}&type=phone_number&app_absent=0`;
