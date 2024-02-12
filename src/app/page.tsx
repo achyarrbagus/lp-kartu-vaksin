@@ -44,7 +44,7 @@ Services : ${service.value}`);
   };
 
   const redirectTele = () => {
-    window.location.replace("https://t.me/InfusionJakarta");
+    window.location.href = "https://t.me/InfusionJakarta";
   };
 
   const lang = useSelector((state: any) => state.lang.value);
@@ -374,14 +374,14 @@ Services : ${service.value}`);
                       </button>
                     </div>
                     <div className="col-6 col-md-3">
-                      <button
+                      <a
                         type="submit"
-                        onClick={redirectTele}
+                        href="https://t.me/InfusionJakarta"
                         className="btn btn-telegram w-100"
                       >
                         <i className="fa-brands fa-telegram fs-18 me-2"></i>
                         Telegram
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </form>
